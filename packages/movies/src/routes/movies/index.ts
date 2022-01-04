@@ -1,4 +1,4 @@
-import { FastifyPluginAsync } from "fastify"
+import { FastifyPluginAsync } from 'fastify';
 
 const movies: FastifyPluginAsync = async (fastify): Promise<void> => {
   const opts = {
@@ -7,19 +7,19 @@ const movies: FastifyPluginAsync = async (fastify): Promise<void> => {
         type: 'object',
         required: ['title'],
         properties: {
-          title: { type: 'string' },
+          title: { type: 'string' }
         }
       }
     }
-  }
+  };
 
   fastify.get('/', async function (request, reply) {
-    return 'this is an example'
-  })
+    return 'this is an example';
+  });
 
-  fastify.post('/', opts , async function (request, reply) {
+  fastify.post('/', opts, async function (request, reply) {
     return request.body;
-  })
-}
+  });
+};
 
 export default movies;
