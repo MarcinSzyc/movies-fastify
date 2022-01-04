@@ -4,6 +4,7 @@ import { FastifyPluginAsync } from 'fastify';
 
 export type AppOptions = {
   // Place your custom options for app below here.
+  
 } & Partial<AutoloadPluginOptions>;
 
 const app: FastifyPluginAsync<AppOptions> = async (
@@ -11,6 +12,10 @@ const app: FastifyPluginAsync<AppOptions> = async (
     opts
 ): Promise<void> => {
   // Place here your custom code!
+
+  fastify.listen(4000, (err)=>{
+    console.log(err)
+  })
 
   // Do not touch the following lines
 
