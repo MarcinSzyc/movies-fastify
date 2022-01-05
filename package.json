@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "start:dev": "lerna exec --parallel npm run start:dev",
-    "test": "lerna exec --parallel npm run test"
+    "test": "lerna exec --parallel npm run test",
+    "bootstrap": "lerna bootstrap"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
