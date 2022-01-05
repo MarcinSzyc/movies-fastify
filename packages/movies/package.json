@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start:dev": "tsc && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"tsc -w\" \"fastify start -p 4000 --ignore-watch=.ts$ -w -l info -P dist/app.js\"",
-    "start": "npm run build:ts && fastify start -l info dist/app.js",
+    "start": "npm run build:ts && fastify start -p 4000 -l info dist/app.js",
     "test": "npm run build:ts && tsc -p test/tsconfig.json && tap --ts test/**/*.test.ts",
     "build:ts": "tsc",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
@@ -20,10 +20,11 @@
   "license": "ISC",
   "dependencies": {
     "fastify": "^3.0.0",
-    "fastify-plugin": "^3.0.0",
     "fastify-autoload": "^3.3.1",
+    "fastify-cli": "^2.14.0",
+    "fastify-plugin": "^3.0.0",
     "fastify-sensible": "^3.1.0",
-    "fastify-cli": "^2.14.0"
+    "fastify-swagger": "^4.13.0"
   },
   "devDependencies": {
     "@types/node": "^16.0.0",
