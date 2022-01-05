@@ -12,10 +12,6 @@ const app: FastifyPluginAsync<AppOptions> = async (
 ): Promise<void> => {
   // Place here your custom code!
 
-  fastify.listen(4000, (err) => {
-    console.log(err);
-  });
-
   // Do not touch the following lines
 
   // This loads all plugins defined in plugins
