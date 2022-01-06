@@ -1,4 +1,4 @@
-import { FastifyPluginAsync } from 'fastify';
+import { FastifyPluginAsync, FastifyRequest } from 'fastify';
 
 const movies: FastifyPluginAsync = async (fastify): Promise<void> => {
   const opts = {
@@ -13,12 +13,22 @@ const movies: FastifyPluginAsync = async (fastify): Promise<void> => {
     }
   };
 
-  fastify.get('/', async function (request, reply) {
-    return 'this is an example';
+  fastify.get('/', async function (request: FastifyRequest, reply) {
+    try {
+      await request.jwtVerify();
+      return 'this is GET example';
+    } catch (error) {
+      reply.send(error);
+    }
   });
 
   fastify.post('/', opts, async function (request, reply) {
-    return request.body;
+    try {
+      await request.jwtVerify();
+      return 'this is POST example';
+    } catch (error) {
+      reply.send(error);
+    }
   });
 };
 
