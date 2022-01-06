@@ -16,7 +16,7 @@ const movies: FastifyPluginAsync = async (fastify): Promise<void> => {
   fastify.get('/', async function (request: FastifyRequest, reply) {
     try {
       await request.jwtVerify();
-      return 'this is an GET example';
+      return 'this is GET example';
     } catch (error) {
       reply.send(error);
     }
@@ -25,11 +25,10 @@ const movies: FastifyPluginAsync = async (fastify): Promise<void> => {
   fastify.post('/', opts, async function (request, reply) {
     try {
       await request.jwtVerify();
-      return 'this is an POST example';
+      return 'this is POST example';
     } catch (error) {
       reply.send(error);
     }
-    return request.body;
   });
 };
 
