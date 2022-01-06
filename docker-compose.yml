@@ -1,0 +1,26 @@
+version: "3.2"
+services:
+  authentication:
+    command: node src/server.js
+    build:
+      context: ./packages/authentication
+      dockerfile: Dockerfile
+    ports:
+      - published: ${APP_PORT:-3000}
+        target: 3000
+    volumes:
+      - ./packages/authentication:/authentication/
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
+  movies:
+    command: npm run start
+    build:
+      context: ./packages/movies
+      dockerfile: Dockerfile
+    ports:
+      - published: ${APP_PORT:-4000}
+        target: 4000
+    volumes:
+      - ./packages/movies:/movies/
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
