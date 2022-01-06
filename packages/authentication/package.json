@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start:dev": "JWT_SECRET=dev node src/server.js"
+    "start:dev": "JWT_SECRET=devSecret node src/server.js"
   },
   "keywords": [],
   "author": "",
